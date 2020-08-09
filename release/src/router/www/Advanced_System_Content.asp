@@ -619,7 +619,8 @@ function applyRule(){
 			ncb_enable_option_flag = true;
 		}
 
-		if((document.form.sw_mode_radio.value==1 && sw_mode!=3) ||
+		if(document.getElementById("sw_mode_radio_tr").style.display != "none" &&
+			(document.form.sw_mode_radio.value==1 && sw_mode!=3) ||
 			(document.form.sw_mode_radio.value==0 && sw_mode==3) ){
 			if (sw_mode == 1) document.form.sw_mode.value = 3;
 			else if (sw_mode == 3) document.form.sw_mode.value = 1;
