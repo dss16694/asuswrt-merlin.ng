@@ -117,7 +117,7 @@ var wans_lanport_orig = '<% nvram_get("wans_lanport"); %>';
 var wanports_bond = '<% nvram_get("wanports_bond"); %>';
 if(wan_bonding_support)
 	var orig_bond_wan = httpApi.nvramGet(["bond_wan"], true).bond_wan;
-
+var modelname = '<% nvram_get("modelname"); %>';
 var faq_href1 = "https://nw-dlcdnet.asus.com/support/forward.html?model=&type=Faq&lang="+ui_lang+"&kw=&num=129";
 var faq_href2 = "https://nw-dlcdnet.asus.com/support/forward.html?model=&type=Faq&lang="+ui_lang+"&kw=&num=130";
 
@@ -137,7 +137,7 @@ function initial(){
 	}
 	wans_caps_primary = wans_caps;
 	wans_caps_secondary = wans_caps;
-	
+
 	addWANOption(document.form.wans_primary, wans_caps_primary.split(" "));
 	addWANOption(document.form.wans_second, wans_caps_secondary.split(" "));
 
@@ -177,6 +177,9 @@ function initial(){
 		document.form.wans_lanport2.remove(3);
 		document.form.wans_lanport2.remove(2);
 	}else if(based_modelid == "RT-AC95U" || based_modelid == "RT-AX95Q" || based_modelid == "XT8PRO" || based_modelid == "RT-AXE95Q" || based_modelid == "ET8PRO" || based_modelid == "RT-AX82_XD6"){
+		document.form.wans_lanport1.remove(3);
+		document.form.wans_lanport2.remove(3);
+	}else if(modelname == "K3"){
 		document.form.wans_lanport1.remove(3);
 		document.form.wans_lanport2.remove(3);
 	}
