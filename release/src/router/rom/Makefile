@@ -310,6 +310,11 @@ ifeq ($(RTAC3200),y)
 	cp -rf cfe/mtd-write $(INSTALLDIR)/rom/cfe/
 endif
 
+ifeq ($(RTK3),y)
+	mkdir -p $(INSTALLDIR)/rom/cfe
+	cp -rf cfe/mtd-write $(INSTALLDIR)/rom/cfe/
+endif
+
 ifeq ($(RTCONFIG_MEDIA_SERVER),y)
 	mkdir -p $(INSTALLDIR)/rom/dlna
 ifeq ($(BUILD_NAME), RT-AC68U)
