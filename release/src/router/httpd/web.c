@@ -7135,7 +7135,7 @@ static void find_hostname_by_mac(char *mac, char *hostname, int hostname_len)
 	}
 	fclose(fp);
 END:
-	strlcpy(hostname, "<unknown>", hostname_len);
+	strlcpy(hostname, "<unknown>", sizeof(hostname));
 }
 
 void get_ipv6_client_info()
@@ -14925,6 +14925,7 @@ do_vpnupload_post(char *url, FILE *stream, int len, char *boundary)
 								nvram_set(name, value);
 							}
 						}
+						//printf("%s=%s\n", name, value);
 					}
 				}
 			}
